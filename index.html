@@ -271,8 +271,8 @@
             <ul class="space-y-3.5 text-sm">
               <li class="flex justify-between gap-4 items-baseline">
                 <span>
-                  <span class="text-ink font-500">Hover AI: 시각장애인을 위한 터치스크린 사용 보조 시스템</span><br />
-                  <span class="text-ash">Proceedings of the Korean Society of Computer Information (KSCI) Winter Conference, Vol. 34, No. 1, p. 631</span>
+                  <span class="text-ink font-500">“Hover AI” 시각장애인을 위한 터치 스크린 사용 도우미</span><br />
+                  <span class="text-ash"><strong class="text-ink/70">허유경(제1저자)</strong>, 김건목, 박호연, 장기현, 황서연 · 2026년 한국컴퓨터정보학회 동계학술대회 논문집, 제34권 1호, p.631</span>
                 </span>
                 <span class="label shrink-0">2026.01</span>
               </li>
@@ -429,7 +429,7 @@
           ] },
         ],
         achievements: [
-          '한국컴퓨터정보학회(KSCI) 동계학술대회 논문 게재 — Vol. 34, No. 1, p. 631 (2026.01)',
+          '한국컴퓨터정보학회 동계학술대회 논문 게재 (<b>제1저자</b>) — 「“Hover AI” 시각장애인을 위한 터치 스크린 사용 도우미」, 제34권 1호, p.631 (2026.01)',
           'SK AI SUMMIT 2025 부스에서 삼성·SK그룹 등 글로벌 VIP 대상 시연으로 시장성 검증',
         ],
         stack: [
@@ -476,45 +476,7 @@
         link: '',
       },
       {
-        no: '03', title: 'Fashion Jiok', kr: '사용자 스타일 기반 매칭 애플리케이션 (AI Agent + 스타일 분류)',
-        role: '백엔드 · AI (대화 추천 Agent + 분류 모델)', year: '2025',
-        period: '2025.09 ~ 2025.12 (4개월)', team: '3명',
-        tags: ['React Native', 'Express', 'MySQL', 'CLIP'],
-        imgCount: 5,
-        noImgBlocks: [1],
-        dualTopBlocks: [3],
-        narrowImgBlocks: [2],
-        summary: 'AI Agent 대화 추천과 스타일 분류 모델을 결합한 사용자 스타일 기반 매칭 애플리케이션입니다. 백엔드·AI를 담당했습니다.',
-        metrics: [
-          { value: 78, suffix: '%', label: '스타일 분류 정확도' },
-        ],
-        bullets: [
-          'Node.js 기반 백엔드 서버 구축 + MySQL DB 설계',
-          'Gemini API 기반 AI 대화 추천 기능 구현 (첫 멘트·맥락 기반 후속 답변)',
-          'EfficientNet/CLIP 기반 여성 스타일 분류 모델 개발 (정확도 78%)',
-        ],
-        sections: [
-          { title: 'AI Agent 대화 도우미', items: ['대화 시작 최적화 — 의도·상황에 맞는 몰입도 높은 첫 멘트 자동 생성', '맥락 기반 답변 추천 — 대화 이력 분석으로 최적 후속 답변 추천 Agent 로직', '사용자 이탈률 최소화 — 어색함 없는 대화 흐름 보장'] },
-          { title: 'CLIP 스타일 분류 (Acc 78%)', items: ['정답 예측 시 0.85+ 구간에 확신 집중 (오답은 저신뢰도로 필터링 가능)', '데이터 수 ∝ 성능: Lovely(F1 0.84) vs Unique(F1 0.31)'] },
-          { title: '남은 질문 — 신뢰도 보정과 클래스 불균형', items: [
-            '신뢰도가 높을수록 실제로 정확하다는 것은 데이터로 확인했지만, 그 신뢰도를 어디서 잘라야 하는지 · 그 값이 다른 데이터에서도 유지되는지는 알지 못했다',
-            '이것이 모델 신뢰도 보정(confidence calibration)이라는 연구 주제라는 것은 나중에 알게 되었다',
-            '데이터가 적은 클래스에서 성능이 무너지는 현상을 "데이터를 더 모으자"로만 넘겼다. 더 모으지 않고 소수 클래스를 다룰 방법이 있는지가 지금 가장 궁금하다',
-          ] },
-        ],
-        stack: [
-          ['개발 언어', 'JavaScript (Node.js · React Native) · Python'],
-          ['프레임워크', 'React Native (Expo) · Express.js · Sequelize'],
-          ['데이터베이스', 'MySQL'],
-          ['모델 학습', 'NVIDIA RTX 4090 GPU'],
-          ['버전 관리·협업', 'GitHub · Notion'],
-          ['AI', 'google-generativeai · EfficientNet · CLIP'],
-          ['라이브러리', 'PyTorch · YOLOv8'],
-        ],
-        link: '',
-      },
-      {
-        no: '04', title: 'en.sedaily.com', kr: '글로벌 뉴스를 위한 AI 기반 AEO·SEO 최적화 플랫폼',
+        no: '03', title: 'en.sedaily.com', kr: '글로벌 뉴스를 위한 AI 기반 AEO·SEO 최적화 플랫폼',
         role: '풀스택 개발 · AI 번역 시스템 · AEO/SEO 최적화', year: '2025',
         period: '2025.12 ~ (6개월)', team: '2명',
         tags: ['Next.js', 'FastAPI', 'AWS Lambda', 'Claude'],
@@ -563,7 +525,7 @@
         ],
       },
       {
-        no: '05', title: 'AI KEY', kr: '한국 상장사·재계 그룹·섹터를 AI가 분석·추적하는 영문 프리미엄 서비스',
+        no: '04', title: 'AI KEY', kr: '한국 상장사·재계 그룹·섹터를 AI가 분석·추적하는 영문 프리미엄 서비스',
         role: '풀스택 (프론트·백엔드·AI 파이프라인·데이터·인프라)', year: '2026',
         period: '2026.04 ~ (진행 중)', team: '단독/협업',
         tags: ['Next.js 14', 'AWS Lambda', 'DynamoDB', 'ElasticSearch'],
@@ -599,7 +561,7 @@
         link: 'https://en.sedaily.com/key',
       },
       {
-        no: '06', title: 'AI NOVA', kr: '기자용 올인원 AI 어시스턴트 (서울경제신문 X AWS)',
+        no: '05', title: 'AI NOVA', kr: '기자용 올인원 AI 어시스턴트 (서울경제신문 X AWS)',
         role: 'AWS 기반 비즈니스 로직 · 다중 AI 모델 통합·실시간 스트리밍', year: '2025',
         period: '—', team: '4명',
         tags: ['React', 'AWS Lambda', 'Serverless', 'Claude'],
@@ -628,7 +590,7 @@
         link: '',
       },
       {
-        no: '07', title: 'AI 카드뉴스 생성', kr: '영문 기사 URL을 한글 인스타 카드뉴스로 자동 변환하는 풀스택 CMS',
+        no: '06', title: 'AI 카드뉴스 생성', kr: '영문 기사 URL을 한글 인스타 카드뉴스로 자동 변환하는 풀스택 CMS',
         role: '풀스택 (프론트·백엔드·AI 프롬프트·인프라) · 단독 개발', year: '2026',
         period: '2026.05 ~ (진행 중)', team: '1명 (단독)',
         tags: ['Next.js 15', 'Bedrock', 'satori', 'resvg'],
@@ -679,11 +641,10 @@
     const IMG = {
       '01': 'hover',        
       '02': 'football',     
-      '03': 'fashion',      
-      '04': 'sedaily',      
-      '05': 'aikey',        
-      '06': 'nexus',        
-      '07': 'cardnews',     
+      '03': 'sedaily',      
+      '04': 'aikey',        
+      '05': 'nexus',        
+      '06': 'cardnews',     
     };
     const imgPath = (no) => `assets/${IMG[no] || no}.jpg`;
 
