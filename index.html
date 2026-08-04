@@ -1015,25 +1015,53 @@
     /* ---------- YUGYEONG 스크램블 ---------- */
     (function () {
       const el = document.getElementById('hero-scramble');
+      if (!el) return;
       const FINAL = 'YUGYEONG';
       const POOL  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+      // 최종 글자로 먼저 렌더 → 폰트 로드 후 폭을 재서 고정한다.
+      // 고정하지 않으면 랜덤 글자마다 폭이 달라져 이름 전체가 좌우로 흔들린다.
       el.innerHTML = FINAL.split('').map((c) =>
-        `<span class="inline-block" data-c="${c}" style="opacity:0">${POOL[Math.floor(Math.random()*26)]}</span>`
+        `<span class="inline-block" data-c="${c}" style="opacity:0">${c}</span>`
       ).join('');
-      const spans = el.querySelectorAll('span');
-      function scrambleOne(span, delay) {
-        setTimeout(() => {
-          span.style.opacity = '1';
-          const target = span.dataset.c;
-          let n = 0, max = 7 + Math.floor(Math.random() * 6);
-          const iv = setInterval(() => {
-            if (n++ >= max) { clearInterval(iv); span.textContent = target; }
-            else span.textContent = POOL[Math.floor(Math.random() * 26)];
-          }, 45);
-        }, delay);
+      const spans = Array.prototype.slice.call(el.querySelectorAll('span'));
+
+      function start() {
+        spans.forEach((s) => {
+          s.style.width = s.getBoundingClientRect().width + 'px';
+          s.style.textAlign = 'center';
+        });
+
+        // 글자마다 setInterval을 두지 않고 rAF 한 개로 전부 돌린다(프레임 동기).
+        const t0 = performance.now();
+        const items = spans.map((s, i) => ({
+          s, delay: i * 75, max: 7 + Math.floor(Math.random() * 6),
+          n: 0, last: 0, done: false, shown: false,
+        }));
+
+        function frame(now) {
+          let alive = false;
+          for (const it of items) {
+            if (it.done) continue;
+            if (now - t0 < it.delay) { alive = true; continue; }
+            if (!it.shown) { it.s.style.opacity = '1'; it.shown = true; }
+            if (now - it.last >= 45) {
+              it.last = now;
+              if (it.n++ >= it.max) { it.s.textContent = it.s.dataset.c; it.done = true; continue; }
+              it.s.textContent = POOL[(Math.random() * 26) | 0];
+            }
+            alive = true;
+          }
+          if (alive) requestAnimationFrame(frame);
+          else spans.forEach((s) => { s.style.width = ''; s.style.textAlign = ''; });
+        }
+        requestAnimationFrame(frame);
       }
-      // 로더 끝난 후 실행 (~1.6s)
-      setTimeout(() => spans.forEach((s, i) => scrambleOne(s, i * 75)), 1650);
+
+      // 폰트가 늦게 뜨면 폭 측정이 틀어지므로 로드를 기다린다.
+      const kickoff = () => setTimeout(start, 1650);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(kickoff).catch(kickoff);
+      else kickoff();
     })();
 
     /* ---------- 로드 인트로 ---------- */
